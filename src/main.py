@@ -4,7 +4,8 @@ import os
 import openai
 import redis
 from typing import Dict
-from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove, Update
+from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove, Update, Audio, Voice
+import speech_recognition as sr
 from telegram.ext import (
     Application,
     CommandHandler,
@@ -42,7 +43,7 @@ CHOOSING, TYPING_REPLY = range(2)
 
 reply_keyboard = [
     ["Writing-question", "Answer"],
-    ["Assess"]
+    ["Assess"],
 ]
 markup = ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=True)
 
